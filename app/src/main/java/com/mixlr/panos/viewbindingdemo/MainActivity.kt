@@ -13,13 +13,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        binding.apply {
+            val view = root
+            setContentView(view)
 
-        binding.btnSubmit.setOnClickListener {
-            val name = binding.etPersonName.text.toString()
-            binding.tvMessage.text = "Hello $name"
-            binding.etPersonName.setText("")
+            btnSubmit.setOnClickListener {
+                val name = etPersonName.text.toString()
+                tvMessage.text = "Hello $name"
+                etPersonName.setText("")
+            }
         }
     }
 }
